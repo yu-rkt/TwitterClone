@@ -78,8 +78,7 @@
                             </li>
 
                             <li class="nav-item">
-                              <a class="inline btn btn-primary">tweet</a>
-
+                              <a class="inline btn btn-primary" href="{{ route('create') }}">tweet</a>
                             </li>
 
                             <div id="inline" style="display:none;" >

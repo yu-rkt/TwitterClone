@@ -1,4 +1,11 @@
 <?php
+use Illuminate\Http\Request;
+use App\Tweet;
+use App\User;
+use App\Follow;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +37,8 @@ Route::group(['middleware' => 'auth'], function(){
   // フォローとフォロー解除
   Route::post('/users/{user}/follow', 'UsersController@follow')->name('follow');
   Route::delete('/users/unfollow', 'UsersController@unfolloe')->name('unfollow');
+
+  // ツイートの新規作成
+  Route::get('/tweet', 'TweetsController@create')->name('create');
+  Route::post('/tweet/store', 'TweetsController@store')->name('store');
 });

@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 
 class Tweet extends Model
 {
     protected $fillable = [
-      'string'
+      'user_id',
+      'tweet',
     ];
 
     // UserモデルとTweetモデルは、１対多の関係
@@ -26,5 +29,16 @@ class Tweet extends Model
       return $this->whereIn('user_id', $follow_ids)->orderBy('created_at', 'desc')->paginate(20);
     }
 
-    
+    // 新規ツイートをDBに保存
+    // ユーザーのidとツイートの内容を引数で受け取る
+    // public function tweetStore(Int $user_id, Array $tweetData)
+    // {
+    //     $this->user_id = $user_id;
+    //     $this->tweet = $tweetData['tweet'];
+    //
+    //     $this->save();
+    //
+    //     return;
+    // }
+
 }
